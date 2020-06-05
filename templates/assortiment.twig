@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="wigth=device-width, initial-scale=1">
+	<link rel="stylesheet" href="CSS/Assortiment.css">
+	<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+	<title>CakesBY - Ассортимент</title>
+</head>
+<body>
+
+<header class="header">
+	<div class="container">
+		<div class="header_inner">
+			<div class="header_logo">CakesBY</div>
+			
+			{% include 'navigation.twig' with {
+				'active_name':"Ассортимент",
+				'item1':"index.php",
+				'item2':"About.php",
+				'item3':"Contacts.php",
+				'item4':"Cart.php",
+				'not_act4':"Корзина",
+				'not_act1':"Главная",
+				'not_act2':"О компании",
+				'not_act3':"Контакты"}
+			%}
+		</div>
+	</div>
+</header>
+
+<div class="intro">
+	<div class="container">
+		<div class="intro_inner">
+			{% include 'intro.twig' with {
+				'subtitle':"",
+				'title':"Ассортимент",
+				'btn':""}
+			%}
+		</div>
+	</div>
+</div>
+
+<section class="section">
+	<div class="container">
+		{% include 'section_title.twig' with {
+			'title':"Продукция"}
+		%}
+		
+		<div class="Assortiment">
+			{% include 'assortiment_item.twig' with {
+				'img':"Images/vesovaya.jpg",
+				'text':"Весовые кондитерские изделия"}
+			%}
+			
+			{% include 'assortiment_item.twig' with {
+				'img':"Images/fasovka.jpg",
+				'text':"Фасованные кондитерские изделия"}
+			%}
+
+			{% include 'assortiment_item.twig' with {
+				'img':"Images/bakaleya.jpg",
+				'text':"Кондитерские изделия на заказ"}
+			%}			
+		</div>
+	</div>
+</section>
+
+<section class="main_text">
+	<div class="container">
+		<div class="text_block">
+			<p>Ассортимент Группы компаний Витрум только по направлению 
+			кондитерских изделий составляет более 1500 наименований.  
+			Используя в работе предлагаемые товары от Витрум и Сладавита 
+			каждый клиент может подобрать нужный и подходящий ассортимент 
+			для своих магазинов и закрыть потребности по всем категориям 
+			кондитерских изделий.</p>
+			<p>Витрум представляет кондитерские изделия классического формата: 
+			простые виды печенья, слойки, крекер, пряники, пирожные, сухари, сушки.</p>
+			<p>Сладавита закрывает потребности в сложных, современных видах изделий, 
+			предлагает вафли, конфеты от карамели до трюфелей, большой ассортимент 
+			фасованной продукции, в том числе и подарочные решения.</p>
+			<p>Принцип отбора позиций для дополнения ассортимента достаточно жесткий. 
+			Продукция должна:</p>
+			<ul>
+				<li>соответствовать всем санитарным, техническим, качественным нормам;</li>
+				<li>иметь высокие вкусовые оценки после проведения внутренней дегустации;</li>
+				<li>презентабельный внешний вид и крепость;</li>
+				<li>иметь качественную и крепкую упаковку.</li>
+			</ul>
+			<p></p>
+		</div>
+	</div>
+</section>
+
+<section class="section">
+	<div class="container">
+		<div class="section_header">
+			<h2 class="section_title">Каталог</h2>
+		</div>
+		
+		<div class="row">
+		
+			{% for card in mycards %}
+					{% include 'card_item.twig' with {
+														'name':card.card_name,
+														'img':card.card_image,
+														'price':card.card_price,
+														'weight':card.card_weight,
+														'height':card.card_height,
+														'base':card.card_base,
+														'filling':card.card_filling}%}
+			{% endfor %}
+		
+		</div>
+	</div>
+</section>
+
+{% include 'footer.twig' %}
+
+</body>
+</html>

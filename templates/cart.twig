@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="wigth=device-width, initial-scale=1">
+	<link rel="stylesheet" href="CSS/Cart.css">
+	<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+	<title>CakesBY - Ассортимент</title>
+</head>
+<body>
+
+<header class="header">
+	<div class="container">
+		<div class="header_inner">
+			<div class="header_logo">CakesBY</div>
+			
+			{% include 'navigation.twig' with {
+				'active_name':"Корзина",
+				'item1':"index.php",
+				'item3':"About.php",
+				'item4':"Contacts.php",
+				'item2':"Assortiment.php",
+				'not_act2':"Ассортимент",
+				'not_act1':"Главная",
+				'not_act3':"О компании",
+				'not_act4':"Контакты"}
+			%}
+		</div>
+	</div>
+</header>
+
+<div class="intro">
+	<div class="container">
+		<div class="intro_inner">
+			{% include 'intro.twig' with {
+				'subtitle':"",
+				'title':"Корзина",
+				'btn':""}
+			%}
+		</div>
+	</div>
+</div>
+
+
+<div class="section">
+		<div class="container">
+			<h2 class="title">Total order sum: ${{Sum}} </h2>
+			{% for card in mycards %}
+					{% include 'cart_item.twig' with {
+														'name':card.card_name,
+														'img':card.card_image,
+														'price':card.card_price, 
+														'num': card.card_num }%}
+			{% endfor %}
+		</div>
+</div>
+
+
+<section class="pre_footer">
+	<div class="container">
+		<div class="pre_footer_inner">
+			<div class="pre_footer_title">Сделать заказ</div>
+			
+			<form action="Cart_send.php" method="post">
+				<div class="pre_footer_col">				
+					<div class="col">
+						<div>
+							<input class="input" type="text" name="firstname" 
+							placeholder="Ваше имя...">
+						</div>
+				
+						<div>
+							<input class="input" type="email" name="e_mail" 
+							placeholder="E-Mail...">
+						</div>
+				
+						<div>
+							<input class="input" type="tel" name="teleph" 
+							placeholder="Контактный телефон...">
+						</div>
+				
+						<div>
+							<input class="input" type="text" name="adress" 
+							placeholder="Адрес...">
+						</div>
+					</div>
+				</div>
+				<p class="btn"><input value="Заказать" type="submit"></p>
+			</form>
+			
+			
+			
+			
+			
+		</div>		
+	</div>
+</section>
+
+{% include 'footer.twig' %}
+</body>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="wigth=device-width, initial-scale=1">
+	<link rel="stylesheet" href="CSS/Contacts.css">
+	<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+	<title>CakesBY</title>
+</head>
+<body>
+
+<header class="header">
+	<div class="container">
+		<div class="header_inner">
+			<div class="header_logo">CakesBY</div>
+			
+			{% include 'navigation.twig' with {
+				'active_name':"Контакты",
+				'item1':"index.php",
+				'item2':"Assortiment.php",
+				'item3':"About.php",
+				'item4':"Cart.php",
+				'not_act4':"Корзина",
+				'not_act1':"Главная",
+				'not_act2':"Ассортимент",
+				'not_act3':"О компании"}
+			%}
+		</div>
+	</div>
+</header>
+
+<div class="intro">
+	<div class="container">
+		{% include 'intro.twig' with {
+			'subtitle':"",
+			'title':"Контакты",
+			'btn':""}
+		%}
+	</div>
+</div>
+
+<section class="section">
+	<div class="container">
+		<div class="location">
+			<div class="location_item">
+				<div class="location_header">Главный офис</div>
+				<div class="location_content">
+					<p>Главный офис расположен по адресу:</p>
+					<p>Республика Беларусь, г. Минск, ул. Гикало, 9, 2 этаж</p>
+					<p>Телефоны:</p>
+					<ul>
+						<li>+375 29 666 66 66</li>
+						<li>+375 17 6 666 666</li>
+						<li>+375 17 6 666 666 (факс)</li>
+					</ul>
+					<p>E-mail:</p>
+					<ul>
+						<li>tut.by</li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="location_item">
+				<div class="map">
+					<h2 class="map_title">
+						<div><img class="img_map" src="Images/imap.png" width="20" alt=""></div>
+						<a href="https://goo.gl/maps/KrWDZnrrXs2AnoBK8" target="_blank">Open Map</a>
+					</h2>
+				</div>			
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="pre_footer">
+	<div class="container">
+		<div class="pre_footer_inner">
+			<div class="pre_footer_title">Связаться с нами</div>
+			
+			<form action="Regex.php" enctype="multipart/form-data" method="post" id="form">
+				<div class="pre_footer_col">				
+					<div class="col">
+						<div>
+							<input class="input" type="text" name="name" 
+							placeholder="Ваше имя...">
+						</div>
+				
+						<div>
+							<input class="input" type="email" name="email" 
+							placeholder="E-Mail...">
+						</div>
+				
+						<div>
+							<input class="input" type="tel" name="tel" 
+							placeholder="Контактный телефон...">
+						</div>
+				
+						<div>
+							<input class="input" type="text" name="theme" 
+							placeholder="Тема...">
+						</div>
+					</div>
+				
+					<div class="col">
+						<textarea name="msg" cols="40" rows="8" class="input" type="text" 
+						placeholder="Ваше сообщение..."></textarea>
+					</div>
+				</div>
+				
+				
+				
+			</form>
+			<p class="btn"><input value="Отправить" type="submit"></p>
+			
+		</div>		
+	</div>
+</section>
+
+{% include 'footer.twig' %}
+</body>
+</html>
